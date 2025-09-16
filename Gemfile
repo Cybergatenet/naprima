@@ -8,6 +8,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
+gem "tailwindcss-rails"
 
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -41,3 +42,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"

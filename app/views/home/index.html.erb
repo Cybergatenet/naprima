@@ -1,1 +1,27 @@
-<h1>Welcome to my Page</h1>
+<header class="bg-blue-60 p-3">
+    <h2>My APP</h2>
+    <nav class="container p-3">
+        <%= link_to "Home", root_path, class: "text-decoration-none" %>
+        <%= link_to "About", home_about_path, class: "text-decoration-none" %>
+
+        <%# Login %>
+        <%= link_to "Login", new_user_session_path, class: "text-decoration-none" %>
+
+        <%# Sign Up %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "text-decoration-none" %>
+
+        <% if user_signed_in? %>
+        <%# Edit Profile %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "text-decoration-none" %>
+
+        <%# Log out %>
+        <%# <%= link_to "Log out", destroy_user_session_path, class: "text-decoration-none", method: :DELETE %>
+
+        <%= button_to "Log out", destroy_user_session_path, 
+        method: :delete, 
+    class: "btn btn-link text-decoration-none p-0 border-0 bg-transparent",
+    form_class: "d-inline" %>
+        <% end %>
+
+    </nav>
+</header>
