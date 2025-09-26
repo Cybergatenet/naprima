@@ -1,6 +1,24 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
 
+  def set_cookies
+    cookies[:darkmode] = true
+    flash[:notice] = "Cookies has been set. Darkmode on"
+
+    redirect_to home_about_path
+  end
+
+  def show_cookies
+    @darkmode = cookies[:darkmode]
+  end  
+
+  def clear_cookies
+    cookies.DELETE(:darkmode)
+    flash[:notice] = "Cookies has been destroyed"
+
+    redirect_to home_about_path
+  end
+
   # GET /blogs or /blogs.json
   def index
     @blogs = Blog.all

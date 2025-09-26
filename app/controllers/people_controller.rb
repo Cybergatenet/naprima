@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
 
   # GET /people or /people.json
   def index
+    # if 
     @people = Person.all
   end
 
