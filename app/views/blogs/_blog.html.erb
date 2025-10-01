@@ -14,4 +14,16 @@
     <%= blog.username %>
   </p>
 
+  <%# Uploaded image %>
+  <% if blog.image.attached? %>
+  <p>
+    <strong>Uploaded Image:</strong>
+    <%= image_tag url_for(blog.image), style: "max-width: 300px; height: auto;" %>
+  </p>
+  <% else %>
+    <p class="bg-rose-500 text-amber-100">
+      <strong>NO Image Attached</strong>
+    </p>
+  <% end %>
+
 </div>
