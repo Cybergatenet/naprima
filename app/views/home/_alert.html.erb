@@ -1,0 +1,12 @@
+<% if flash.any? %>
+    <div class="mb-4">
+    <% flash.each do |key, message| %>
+        <div class="border-b-blue-600 p-3 rounded %>">
+        <%# Simple mapping: notice -> green, alert -> red (adjust to your CSS/Tailwind) %>
+        <% css = key.to_s == "notice" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800" %>
+           <div class="mb-2 #{css} px-4 py-2 rounded">
+        <%= message %>
+        </div>
+    <% end %>
+        </div>
+<% end %>

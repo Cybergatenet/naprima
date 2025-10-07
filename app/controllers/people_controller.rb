@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: %i[ show edit update destroy ]
+  before_action :require_admin!
 
   # GET /people or /people.json
   def index
@@ -59,6 +60,14 @@ class PeopleController < ApplicationController
   end
 
   private
+
+    def require_admin!
+      unless current_user&.admin?
+        flash[:alert] = "You are NOT authorized."
+        redirect_to root_path
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_person
       @person = Person.find(params.expect(:id))

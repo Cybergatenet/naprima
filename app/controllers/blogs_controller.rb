@@ -1,6 +1,10 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
 
+  # before_action
+  # after_action
+  # around_action
+
   def set_cookies
     cookies[:darkmode] = true
     flash[:notice] = "Cookies has been set. Darkmode on"
@@ -83,6 +87,8 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.expect(blog: [ :title, :body, :username ])
+      # add :image to permitted attributes
+      # params.require(:blog).permit(:title, :body, :username, :image)
+      params.expect(blog: [ :title, :body, :username, :image ])
     end
 end

@@ -2,7 +2,13 @@
 
 <h1>Editing blog</h1>
 
-<%= render "form", blog: @blog %>
+<%# <%= render "form", blog: @blog %>
+
+<% if current_user&.admin? %>
+  <%= render "form", blog: @blog %>
+<% else %>
+  <%= flash[:alert] = "Only Admins can Edit this Blog Post" %>
+<% end %>
 
 <br>
 

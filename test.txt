@@ -1,1 +1,12 @@
 this is a test file
+
+
+<div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <%# If you want to allow replacing an existing image, show a preview: %>
+    <% if blog.image.attached? %>
+      <p class="mt-2">Current image:</p>
+      <%= image_tag url_for(blog.image.variant(resize_to_limit: [300, 300])) rescue image_tag(url_for(post.image)) %>
+    <% end %>
+  </div>
